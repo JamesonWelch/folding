@@ -1,0 +1,15 @@
+---
+services:
+  foldingathome:
+    image: lscr.io/linuxserver/foldingathome:latest
+    container_name: foldingathome
+    env_file: .env
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - ./data:/config
+    ports:
+      - 7396:7396
+    restart: unless-stopped
